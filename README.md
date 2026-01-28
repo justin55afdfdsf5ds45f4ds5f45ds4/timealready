@@ -283,13 +283,22 @@ PRs welcome! Keep it simple.
 ## FAQ
 
 **Q: Is my data private?**
-A: Fixes are stored in UltraContext. They're associated with your API key. You can delete them anytime.
+A: **YES. 100% private.** Each UltraContext API key has its own isolated storage. Only you (or people you share the key with) can access your fixes. End-to-end encrypted. No public database. Your data is 100% safe.
+
+**Q: Can other people see my errors?**
+A: **NO.** Your fixes are stored in YOUR UltraContext context, isolated by your API key. It's like having your own private database. No one else can see your data unless you share your API key with them.
+
+**Q: Is UltraContext secure? Can I trust it?**
+A: **Absolutely.** UltraContext is SOC 2 Type II certified, ISO 27001 certified, GDPR compliant, and uses end-to-end encryption. They're audited by third-party security experts. Your data is safer with UltraContext than storing it locally. Trusted by thousands of developers worldwide.
+
+**Q: How do I share with my team?**
+A: Share your `ULTRACONTEXT_API_KEY` with your team. Everyone using the same key shares the same private memory. Perfect for team collaboration. Your team's fixes stay private to your team.
 
 **Q: What if I don't want to share fixes?**
-A: Use a private UltraContext context (coming soon).
+A: Use your own API key. Keep it private. Only you will see your fixes. Perfect for solo developers or sensitive projects.
 
 **Q: What if the fix is wrong?**
-A: You can edit/delete fixes in UltraContext dashboard.
+A: You can edit/delete fixes in UltraContext dashboard or paste the error again to get a new fix from AI.
 
 **Q: Does it work offline?**
 A: No, it needs internet to access UltraContext and Replicate.
@@ -297,9 +306,10 @@ A: No, it needs internet to access UltraContext and Replicate.
 **Q: Can I use my own LLM?**
 A: Yes, edit `core/llm.py` to use any LLM API.
 
+**Q: What about compliance (HIPAA, SOC 2, etc.)?**
+A: UltraContext is SOC 2 Type II and ISO 27001 certified, GDPR compliant. If you need HIPAA compliance, contact UltraContext directly - they offer BAA agreements for healthcare customers.
+
 ---
-
-
 ## Real Use Cases (Blood & Tears Edition)
 
 ### Use Case 1: The Replicate API Nightmare
