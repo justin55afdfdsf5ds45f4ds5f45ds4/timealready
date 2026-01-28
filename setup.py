@@ -36,7 +36,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "xbyt1p=codehealer:cli_entry",
+            "xbyt1p=xbyt1p:cli_entry",
         ],
     },
     keywords=[

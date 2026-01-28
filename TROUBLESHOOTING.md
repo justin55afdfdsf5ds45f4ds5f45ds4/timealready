@@ -85,7 +85,7 @@ bash: xbyt1p: command not found
 python -m pip install -e . --force-reinstall
 
 # Or run directly
-python codehealer.py error.log
+python xbyt1p.py error.log
 ```
 
 ## Testing Your Setup

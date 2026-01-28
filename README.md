@@ -106,19 +106,19 @@ ULTRACONTEXT_API_KEY=your_ultracontext_key  # Optional
 
 ```bash
 # Fix error from log file
-python codehealer.py error.log
+python xbyt1p.py error.log
 
 # Fix error from clipboard
-python codehealer.py "Traceback (most recent call last)..."
+python xbyt1p.py "Traceback (most recent call last)..."
 
 # Specify codebase path
-python codehealer.py error.log /path/to/project
+python xbyt1p.py error.log /path/to/project
 ```
 
 ### Example Session
 
 ```bash
-$ python codehealer.py test_project/error.log test_project
+$ python xbyt1p.py test_project/error.log test_project
 
 [*] Analyzing error...
 [!] Error: IndexError in test_project/utils.py:6
@@ -233,7 +233,7 @@ xbyt1p/
 │   ├── fix_generator.py       # RLM-based fix generation
 │   ├── sandbox_executor.py    # E2B sandbox testing
 │   └── memory_manager.py      # UltraContext integration
-├── codehealer.py              # CLI entry point
+├── xbyt1p.py                  # CLI entry point
 ├── models.py                  # Pydantic data models
 ├── requirements.txt           # Python dependencies
 ├── setup.py                   # Package configuration
@@ -302,7 +302,7 @@ Stores and retrieves fixes:
 ### Development Workflow
 ```bash
 # Hit an error during development
-python codehealer.py error.log
+python xbyt1p.py error.log
 
 # Apply the fix
 # Continue coding
@@ -323,7 +323,7 @@ jobs:
       - name: Run tests and capture errors
         run: pytest > test_output.log || true
       - name: Auto-fix errors
-        run: python codehealer.py test_output.log
+        run: python xbyt1p.py test_output.log
         env:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_TOKEN }}
           E2B_API_KEY: ${{ secrets.E2B_KEY }}
@@ -332,7 +332,7 @@ jobs:
 ### Production Monitoring
 ```bash
 # Watch logs and auto-fix
-tail -f /var/log/app.log | python codehealer.py --watch
+tail -f /var/log/app.log | python xbyt1p.py --watch
 ```
 
 ---
