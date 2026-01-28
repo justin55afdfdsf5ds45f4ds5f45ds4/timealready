@@ -72,10 +72,10 @@ Model: memory
 Memory works within the same session:
 ```bash
 # First error - uses API, stores in memory
-xbyt1p error1.log
+timealready error1.log
 
 # Similar error - uses memory (if API fails)
-xbyt1p error2.log
+timealready error2.log
 ```
 
 **Future:**
@@ -119,8 +119,8 @@ xbyt1p error2.log
 ### 🚀 Features
 
 **Global Installation**
-- Install once, use anywhere: `xbyt1p error.log`
-- Config stored at `~/.xbyt1p/.env`
+- Install once, use anywhere: `timealready error.log`
+- Config stored at `~/.timealready/.env`
 - Secure API key handling (not exposed in code)
 
 **Multi-Language Stack Trace Parsing**
@@ -177,14 +177,14 @@ xbyt1p error2.log
 python install.py
 
 # Use from any project
-xbyt1p error.log
-xbyt1p error.log /path/to/project
-xbyt1p "Error: undefined is not a function..."
+timealready error.log
+timealready error.log /path/to/project
+timealready "Error: undefined is not a function..."
 
 # Works with any language
-xbyt1p javascript_error.log
-xbyt1p java_stacktrace.txt
-xbyt1p rust_panic.log
+timealready javascript_error.log
+timealready java_stacktrace.txt
+timealready rust_panic.log
 ```
 
 ### 🐛 Bug Fixes

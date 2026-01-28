@@ -72,11 +72,11 @@ ValueError: REPLICATE_API_TOKEN not found in environment
 3. No quotes, no spaces around the `=`
 4. Run: `xbyt1p` to test
 
-## Issue: Command not found: xbyt1p
+## Issue: Command not found: timealready
 
 **Symptoms:**
 ```
-bash: xbyt1p: command not found
+bash: timealready: command not found
 ```
 
 **Solution:**
@@ -85,7 +85,7 @@ bash: xbyt1p: command not found
 python -m pip install -e . --force-reinstall
 
 # Or run directly
-python xbyt1p.py error.log
+python timealready.py error.log
 ```
 
 ## Testing Your Setup
@@ -124,7 +124,7 @@ $env:REPLICATE_API_TOKEN   # Windows
 
 ```bash
 # Test with Python error (should work)
-xbyt1p test_project/error.log test_project
+timealready test_project/error.log test_project
 
 # Expected output:
 # [*] Analyzing error...

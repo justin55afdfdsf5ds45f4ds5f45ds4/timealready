@@ -110,19 +110,19 @@ ULTRACONTEXT_API_KEY=your_ultracontext_key  # REQUIRED for memory and scaling
 
 ```bash
 # Fix error from log file
-python xbyt1p.py error.log
+timealready error.log
 
 # Fix error from clipboard
-python xbyt1p.py "Traceback (most recent call last)..."
+timealready "Traceback (most recent call last)..."
 
 # Specify codebase path
-python xbyt1p.py error.log /path/to/project
+timealready error.log /path/to/project
 ```
 
 ### Example Session
 
 ```bash
-$ python xbyt1p.py test_project/error.log test_project
+$ timealready test_project/error.log test_project
 
 [*] Analyzing error...
 [!] Error: IndexError in test_project/utils.py:6
@@ -237,7 +237,7 @@ timealready/
 │   ├── fix_generator.py       # RLM-based fix generation
 │   ├── sandbox_executor.py    # E2B sandbox testing
 │   └── memory_manager.py      # UltraContext integration
-├── xbyt1p.py                  # CLI entry point
+├── timealready.py             # CLI entry point
 ├── models.py                  # Pydantic data models
 ├── requirements.txt           # Python dependencies
 ├── setup.py                   # Package configuration
@@ -308,7 +308,7 @@ Stores and retrieves fixes:
 ### Development Workflow
 ```bash
 # Hit an error during development
-python xbyt1p.py error.log
+timealready error.log
 
 # Apply the fix
 # Continue coding
@@ -329,7 +329,7 @@ jobs:
       - name: Run tests and capture errors
         run: pytest > test_output.log || true
       - name: Auto-fix errors
-        run: python xbyt1p.py test_output.log
+        run: timealready test_output.log
         env:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_TOKEN }}
           E2B_API_KEY: ${{ secrets.E2B_KEY }}
@@ -338,7 +338,7 @@ jobs:
 ### Production Monitoring
 ```bash
 # Watch logs and auto-fix
-tail -f /var/log/app.log | python xbyt1p.py --watch
+tail -f /var/log/app.log | timealready --watch
 ```
 
 ---

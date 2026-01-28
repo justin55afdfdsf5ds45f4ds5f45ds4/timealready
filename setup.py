@@ -36,7 +36,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "timealready=xbyt1p:cli_entry",
+            "timealready=timealready:cli_entry",
         ],
     },
     keywords=[
