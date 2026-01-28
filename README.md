@@ -456,9 +456,9 @@ If you use XBYT1P&%R$@ in your research or project, please cite:
 
 ## Support
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/xbyt1p/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/xbyt1p/discussions)
-- **Email:** support@xbyt1p.dev
+- **Issues:** [GitHub Issues](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-/discussions)
+- **Email:** justinlord@empusaai.com
 
 ---
 
