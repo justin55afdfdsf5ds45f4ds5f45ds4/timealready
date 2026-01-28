@@ -378,8 +378,8 @@ We welcome contributions! Here's how to get started:
 
 ```bash
 # Fork and clone
-git clone https://github.com/yourusername/xbyt1p.git
-cd xbyt1p
+git clone https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/timealready.git
+cd timealready
 
 # Create virtual environment
 python -m venv venv
@@ -464,8 +464,8 @@ If you use timealready in your research or project, please cite:
 
 ## Support
 
-- **Issues:** [GitHub Issues](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-/discussions)
+- **Issues:** [GitHub Issues](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/timealready/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/timealready/discussions)
 - **Email:** justinlord@empusaai.com
 
 ---

@@ -67,10 +67,10 @@ ValueError: REPLICATE_API_TOKEN not found in environment
 ```
 
 **Solution:**
-1. Check `~/.xbyt1p/.env` exists
+1. Check `~/.timealready/.env` exists
 2. Verify it contains: `REPLICATE_API_TOKEN=r8_...`
 3. No quotes, no spaces around the `=`
-4. Run: `xbyt1p` to test
+4. Run: `timealready` to test
 
 ## Issue: Command not found: timealready
 
@@ -110,7 +110,7 @@ If you see "Insufficient credit", your token is wrong or has no credits.
 
 ```bash
 # Check .env file
-cat ~/.xbyt1p/.env
+cat ~/.timealready/.env
 
 # Check system env (should be empty or match .env)
 echo $REPLICATE_API_TOKEN  # Linux/Mac
@@ -141,4 +141,4 @@ timealready test_project/error.log test_project
 1. Check Replicate account has credits: https://replicate.com/account/billing
 2. Verify API token is active: https://replicate.com/account/api-tokens
 3. Check rate limits (6 req/min without payment method)
-4. Open an issue: https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-/issues
+4. Open an issue: https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/timealready/issues

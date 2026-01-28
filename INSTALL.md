@@ -4,28 +4,28 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/XBYT1P-R-.git
-cd XBYT1P-R-
+git clone https://github.com/justin55afdfdsf5ds45f4ds5f45ds4/timealready.git
+cd timealready
 
 # Run the installer
 python install.py
 ```
 
 This will:
-1. Install XBYT1P globally as `xbyt1p` command
-2. Create config directory at `~/.xbyt1p/`
-3. Copy `.env.example` to `~/.xbyt1p/.env`
+1. Install timealready globally as `timealready` command
+2. Create config directory at `~/.timealready/`
+3. Copy `.env.example` to `~/.timealready/.env`
 
 ## Configure API Keys
 
-Edit `~/.xbyt1p/.env` and add your API keys:
+Edit `~/.timealready/.env` and add your API keys:
 
 ```bash
 # Windows
-notepad %USERPROFILE%\.xbyt1p\.env
+notepad %USERPROFILE%\.timealready\.env
 
 # Linux/Mac
-nano ~/.xbyt1p/.env
+nano ~/.timealready/.env
 ```
 
 Required keys:
@@ -37,23 +37,23 @@ Required keys:
 
 ## Usage
 
-Once installed, you can use `xbyt1p` from any directory:
+Once installed, you can use `timealready` from any directory:
 
 ```bash
 # Fix error from log file
-xbyt1p error.log
+timealready error.log
 
 # Fix error from clipboard
-xbyt1p "Traceback (most recent call last)..."
+timealready "Traceback (most recent call last)..."
 
 # Specify codebase path
-xbyt1p error.log /path/to/project
+timealready error.log /path/to/project
 ```
 
 ## Example
 
 ```bash
-$ xbyt1p test_project/error.log test_project
+$ timealready test_project/error.log test_project
 
 [*] Analyzing error...
 [!] Error: IndexError in test_project/utils.py:6
@@ -85,7 +85,7 @@ Model: deepseek-ai/deepseek-v3
 
 ### Command not found
 
-If `xbyt1p` command is not found after installation:
+If `timealready` command is not found after installation:
 
 1. Make sure Python's Scripts directory is in your PATH
 2. Try running directly: `python -m codehealer <args>`
@@ -95,7 +95,7 @@ If `xbyt1p` command is not found after installation:
 
 If you get "API key not found" errors:
 
-1. Check that `~/.xbyt1p/.env` exists
+1. Check that `~/.timealready/.env` exists
 2. Verify the keys are set correctly (no quotes, no spaces)
 3. Try setting environment variables directly:
    ```bash
@@ -119,7 +119,7 @@ If you see "Insufficient credit" error from Replicate:
 ## Uninstall
 
 ```bash
-pip uninstall xbyt1p
-rm -rf ~/.xbyt1p  # Linux/Mac
-rmdir /s %USERPROFILE%\.xbyt1p  # Windows
+pip uninstall timealready
+rm -rf ~/.timealready  # Linux/Mac
+rmdir /s %USERPROFILE%\.timealready  # Windows
 ```
