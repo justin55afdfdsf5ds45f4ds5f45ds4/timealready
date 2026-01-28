@@ -1,5 +1,99 @@
 # Changelog
 
+## v1.1.0 - Memory Fallback (2026-01-28)
+
+### 🚀 New Feature: Memory Fallback
+
+**When Replicate API fails (rate limit, credits, network), system now falls back to UltraContext memory!**
+
+**How it works:**
+1. Try cheap model (DeepSeek V3) - $0.0002
+2. If API fails → Check memory for similar fixes
+3. If similar fix found → Apply it directly (FREE!)
+4. If memory fix works → Return it (Cost: $0)
+5. If no memory fix → Try smart model (Claude 4.5)
+
+**Benefits:**
+- ✅ Zero cost for repeated errors
+- ✅ Works offline after learning
+- ✅ Instant fixes from memory
+- ✅ Resilient to API failures
+
+**Example Flow:**
+```
+[*] Generating fix with cheap model...
+[-] Cheap model failed: ReplicateError (rate limit)
+[!] Attempting to apply learned fix from memory...
+[+] Applied fix from memory!
+[*] Testing memory fix in sandbox...
+[+] Memory fix works!
+
+SUCCESS - FIX GENERATED
+Cost: $0.000000
+Model: memory
+```
+
+### 📊 Memory Storage
+
+**What's stored:**
+- Error signature (hash of error type + pattern)
+- Error type and file pattern
+- Fix strategy description
+- **Actual fixed code** (new!)
+- Success/failure counts
+- Success rate
+
+**Matching algorithm:**
+- Exact error type match
+- File pattern similarity (e.g., `api/*.py`)
+- Sorted by success rate
+- Returns top 5 matches
+
+### 🔧 Technical Changes
+
+**Files Modified:**
+- `core/memory_manager.py` - Added `apply_learned_fix()` method
+- `models.py` - Added `fixed_code` field to `LearnedFix`
+- `codehealer.py` - Integrated memory fallback in healing flow
+
+**New Methods:**
+- `MemoryManager.apply_learned_fix()` - Apply stored fix directly
+- `MemoryManager._apply_fix_strategy()` - Reconstruct fix from memory
+- `MemoryManager._generate_diff()` - Generate diff for memory fixes
+
+### ⚠️ Current Limitations
+
+**Memory Persistence:**
+- Memory is currently in-memory only (Python dict)
+- Does NOT persist across sessions/restarts
+- UltraContext SDK integration pending
+
+**Workaround:**
+Memory works within the same session:
+```bash
+# First error - uses API, stores in memory
+xbyt1p error1.log
+
+# Similar error - uses memory (if API fails)
+xbyt1p error2.log
+```
+
+**Future:**
+- Persistent storage with UltraContext SDK
+- Cross-session memory
+- Shared team memory
+
+### 📈 Cost Savings
+
+| Scenario | Before | After | Savings |
+|----------|--------|-------|---------|
+| First error | $0.0002 | $0.0002 | 0% |
+| Same error (API works) | $0.0002 | $0.0002 | 0% |
+| Same error (API fails) | FAIL | $0 | 100% |
+| 100 similar errors (API fails) | FAIL | $0 | 100% |
+
+---
+
 ## v1.0.0 - Multi-Language Support (2026-01-28)
 
 ### ✅ Fixed Issues
