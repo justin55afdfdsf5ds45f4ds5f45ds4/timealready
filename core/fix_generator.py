@@ -87,7 +87,26 @@ class FixGenerator:
     def _build_fix_prompt(self, error_report: ErrorReport, learned_fixes: List[LearnedFix]) -> str:
         """Build prompt for fix generation"""
         
-        prompt = f"""Fix this Python error:
+        # Detect language from file extension
+        file_ext = error_report.file_path.split('.')[-1] if '.' in error_report.file_path else 'txt'
+        lang_map = {
+            'py': 'Python',
+            'js': 'JavaScript',
+            'ts': 'TypeScript',
+            'java': 'Java',
+            'cs': 'C#',
+            'go': 'Go',
+            'rs': 'Rust',
+            'php': 'PHP',
+            'rb': 'Ruby',
+            'cpp': 'C++',
+            'c': 'C',
+            'swift': 'Swift',
+            'kt': 'Kotlin',
+        }
+        language = lang_map.get(file_ext, 'code')
+        
+        prompt = f"""Fix this {language} error:
 
 Error Type: {error_report.error_type}
 Error Message: {error_report.error_message}
@@ -118,11 +137,11 @@ Line: {error_report.line_number}
         
         # Add the actual code
         if error_report.file_content:
-            prompt += f"\nCurrent code in {error_report.file_path}:\n```python\n{error_report.file_content}\n```\n"
+            prompt += f"\nCurrent code in {error_report.file_path}:\n```{file_ext}\n{error_report.file_content}\n```\n"
         else:
             prompt += f"\nError occurred at line {error_report.line_number}\n"
         
-        prompt += "\nProvide the COMPLETE fixed file content. Return ONLY the Python code, no explanations, no markdown:"
+        prompt += f"\nProvide the COMPLETE fixed file content. Return ONLY the {language} code, no explanations, no markdown:"
         
         return prompt
     

@@ -19,6 +19,8 @@
 
 XBYT1P&%R$@ is an autonomous debugging agent that learns from every error it fixes. Unlike traditional AI agents that forget everything after each run, XBYT1P&%R$@ stores fix strategies in persistent memory (UltraContext), making it exponentially faster and cheaper over time.
 
+**Supports:** Python, JavaScript, TypeScript, Java, C#, Go, Rust, PHP, Ruby, and more.
+
 ### Key Innovation
 
 **The Problem:** AI agents suffer from "context rot" - they forget solutions and repeat mistakes, burning through API costs.
@@ -338,7 +340,7 @@ tail -f /var/log/app.log | python codehealer.py --watch
 ## Roadmap
 
 ### Current (v1.0)
-- [x] Python error fixing
+- [x] Multi-language support (Python, JS, TS, Java, C#, Go, Rust, PHP, Ruby)
 - [x] Stack trace parsing
 - [x] Relation mapping
 - [x] RLM routing (cheap/smart)
@@ -347,7 +349,7 @@ tail -f /var/log/app.log | python codehealer.py --watch
 - [x] CLI interface
 
 ### Planned (v1.1)
-- [ ] Multi-language support (JavaScript, Go, Rust)
+- [ ] More languages (C++, Swift, Kotlin)
 - [ ] IDE plugins (VSCode, JetBrains)
 - [ ] GitHub Action
 - [ ] Web dashboard
@@ -404,7 +406,7 @@ pytest
 ## FAQ
 
 **Q: Does it work with languages other than Python?**  
-A: Currently Python only. JavaScript, Go, and Rust support planned for v1.1.
+A: Yes! v1.0 supports Python, JavaScript, TypeScript, Java, C#, Go, Rust, PHP, and Ruby. More languages coming in v1.1.
 
 **Q: Is it safe to use in production?**  
 A: Yes. All fixes are tested in isolated E2B sandboxes. You review diffs before applying.

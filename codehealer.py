@@ -80,6 +80,22 @@ class CodeHealer:
             use_smart=False
         )
         
+        # Check if fix generation failed
+        if not fix_result.success:
+            print(f"[-] Cheap model failed: {fix_result.message}")
+            print("[!] Escalating to smart model...")
+            fix_result = await self.fix_generator.generate_fix(
+                error_report=error_report,
+                learned_fixes=similar_fixes,
+                use_smart=True
+            )
+            if not fix_result.success:
+                return FixResult(
+                    success=False,
+                    message=f"Both models failed. Last error: {fix_result.message}",
+                    error_report=error_report
+                )
+        
         # Test in sandbox
         print("[*] Testing fix in sandbox...")
         if fix_result.fixed_code:
@@ -99,12 +115,19 @@ class CodeHealer:
             print(f"    Test failed: {test_result.error[:200] if test_result.error else 'Unknown'}")
         
         # Escalate to smart model
-        print("[!] Cheap model fix failed. Escalating to smart model...")
+        print("[!] Cheap model fix didn't pass tests. Escalating to smart model...")
         fix_result = await self.fix_generator.generate_fix(
             error_report=error_report,
             learned_fixes=similar_fixes,
             use_smart=True
         )
+        
+        if not fix_result.success:
+            return FixResult(
+                success=False,
+                message=f"Smart model failed: {fix_result.message}",
+                error_report=error_report
+            )
         
         # Test again
         print("[*] Testing smart model fix...")
